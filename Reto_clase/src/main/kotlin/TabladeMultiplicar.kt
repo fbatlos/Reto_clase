@@ -11,9 +11,11 @@ import kotlin.math.min
  * @return Int - número entero válido dentro del rango especificado
  */
 fun pedirNum(): Int {
+    val min = 1
+    val max = 100
     print("Introducción de un número entre 1 y 100 : ")
     val numero = readln().toInt()
-    if (numero>=1 && numero<=100){
+    if (numero>=min && numero<=max){
         return numero
     }else{
         error(" ")
@@ -50,10 +52,8 @@ fun main() {
        do {
            val numero = pedirNum()
            println("La tabla de multiplicar del número ${numero} es: ")
-           val tabla = IntArray(10) { i -> i + 1 }
-           for (i in tabla) {
-               println("${i} -> ${numero} x ${i} = ${i * numero}")
-           }
+           val tabla = Array(11) {  "${it} -> ${numero} x ${it} = ${it * numero}"} //funcion landa funcion secuencial
+           for (i in tabla) println(i)
            repuesta = pregunta()
        }while (repuesta == true)
    }catch (_:Exception){
@@ -61,3 +61,7 @@ fun main() {
    }
     //Hasta que se responda negativamente a la pregunta "¿Desea generar otra tabla de multiplicación? (s/n)"
 }
+
+
+
+
